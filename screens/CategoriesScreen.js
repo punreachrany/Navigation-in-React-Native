@@ -51,8 +51,20 @@ const CategoriesScreen = (props) => {
   );
 };
 
-CategoriesScreen.navigationOptions = {
-  headerTitle: "Meal Categories",
+CategoriesScreen.navigationOptions = (navData) => {
+  return {
+    headerTitle: "Meal Categories",
+    headerLeft: (
+      <TouchableOpacity
+        onPress={() => {
+          console.log("Press tab");
+          navData.navigation.toggleDrawer();
+        }}
+      >
+        <Text>===</Text>
+      </TouchableOpacity>
+    ),
+  };
 };
 
 const styles = StyleSheet.create({

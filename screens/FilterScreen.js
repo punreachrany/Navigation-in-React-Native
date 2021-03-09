@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 import React from "react";
 
@@ -8,6 +8,22 @@ const FilterScreen = (props) => {
       <Text>The Filter Screen</Text>
     </View>
   );
+};
+
+FilterScreen.navigationOptions = (navData) => {
+  return {
+    headerTitle: "Filter Meals",
+    headerLeft: (
+      <TouchableOpacity
+        onPress={() => {
+          console.log("Press tab");
+          navData.navigation.toggleDrawer();
+        }}
+      >
+        <Text>===</Text>
+      </TouchableOpacity>
+    ),
+  };
 };
 
 const styles = StyleSheet.create({
